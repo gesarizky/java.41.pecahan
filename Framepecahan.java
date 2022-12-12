@@ -1,4 +1,5 @@
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /*
@@ -38,6 +39,7 @@ public class Framepecahan extends javax.swing.JFrame {
         outb = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         outc = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -55,6 +57,11 @@ public class Framepecahan extends javax.swing.JFrame {
                 inbActionPerformed(evt);
             }
         });
+        inb.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inbKeyTyped(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("____");
@@ -67,12 +74,22 @@ public class Framepecahan extends javax.swing.JFrame {
                 inaActionPerformed(evt);
             }
         });
+        ina.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inaKeyTyped(evt);
+            }
+        });
 
         inc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         inc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         inc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 incActionPerformed(evt);
+            }
+        });
+        inc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                incKeyTyped(evt);
             }
         });
 
@@ -94,6 +111,7 @@ public class Framepecahan extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,6 +140,8 @@ public class Framepecahan extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,7 +164,7 @@ public class Framepecahan extends javax.swing.JFrame {
                         .addComponent(outb, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -153,6 +173,7 @@ public class Framepecahan extends javax.swing.JFrame {
     private void inbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inbActionPerformed
         // TODO add your handling code here:
         if (ina.getText().equals("") || inb.getText().equals("") || inc.getText().equals("")) {
+            getToolkit().beep();
             JOptionPane.showMessageDialog(null, "isi semua data");
         } else {
             String teksa = ina.getText();
@@ -173,6 +194,7 @@ public class Framepecahan extends javax.swing.JFrame {
     private void inaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inaActionPerformed
         // TODO add your handling code here:
         if (ina.getText().equals("") || inb.getText().equals("") || inc.getText().equals("")) {
+            getToolkit().beep();
             JOptionPane.showMessageDialog(null, "isi semua data");
         } else {
             String teksa = ina.getText();
@@ -192,6 +214,7 @@ public class Framepecahan extends javax.swing.JFrame {
     private void incActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incActionPerformed
         // TODO add your handling code here:
         if (ina.getText().equals("") || inb.getText().equals("") || inc.getText().equals("")) {
+            getToolkit().beep();
             JOptionPane.showMessageDialog(null, "isi semua data");
         } else {
             String teksa = ina.getText();
@@ -207,6 +230,30 @@ public class Framepecahan extends javax.swing.JFrame {
             outc.setText(outputc);
         }
     }//GEN-LAST:event_incActionPerformed
+
+    private void inaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inaKeyTyped
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        if (!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE) ))) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_inaKeyTyped
+
+    private void inbKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inbKeyTyped
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        if (!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE) ))) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_inbKeyTyped
+
+    private void incKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_incKeyTyped
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        if (!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE) ))) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_incKeyTyped
 
     /**
      * @param args the command line arguments
@@ -252,6 +299,7 @@ public class Framepecahan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField outb;
     private javax.swing.JTextField outc;
     // End of variables declaration//GEN-END:variables
